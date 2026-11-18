@@ -1,0 +1,17 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TikTok verbunden – Nils Clip Uploader</title><link rel="stylesheet" href="style.css"></head><body>
+<h1>Fast geschafft ✅</h1>
+<p>Kopiere die komplette Adresse unten und füge sie im Ubuntu-Fenster bei <b>„Komplette Weiterleitungs-URL hier einfügen“</b> ein.</p>
+<div class="box" id="url"></div>
+<button id="copy">Adresse kopieren</button> <span id="ok"></span>
+<p id="err" style="color:#c00"></p>
+<script>
+  var u = window.location.href;
+  document.getElementById('url').textContent = u;
+  var p = new URLSearchParams(window.location.search);
+  if (p.get('error')) document.getElementById('err').textContent = 'TikTok meldet: ' + (p.get('error_description') || p.get('error')) + ' – bitte erneut versuchen.';
+  document.getElementById('copy').onclick = function () {
+    navigator.clipboard.writeText(u).then(function () { document.getElementById('ok').textContent = 'Kopiert!'; });
+  };
+</script>
+</body></html>
